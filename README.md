@@ -1,425 +1,425 @@
+<div align="center">
 
-🚀 PlacementGPT
+<h1>
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="40" />
+  PlacementGPT
+</h1>
 
-AI Powered Multi-Agent Placement Outreach Automation Platform
+<p><strong>AI-Powered Multi-Agent Placement Outreach Automation Platform</strong></p>
 
-PlacementGPT is a full-stack AI workflow automation platform that:
+<p>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" />
+  <img src="https://img.shields.io/badge/LangGraph-FF6B35?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+</p>
 
-parses job portal HTML
-discovers recruiter emails
-researches companies using Google Search
-generates personalized outreach emails using local LLMs
-supports CSV recruiter workflows
-enables human-in-the-loop editing
-sends emails directly using Gmail SMTP
+<p>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" />
+  <img src="https://img.shields.io/badge/LLM-Llama_3.2-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/Made%20by-Ritik%20Saini-blue?style=flat-square" />
+</p>
 
-Built using:
+<p><em>Parse job portals → Discover recruiter emails → Research companies → Generate personalized outreach → Send — all automated.</em></p>
 
-React
-FastAPI
-LangGraph
-Ollama
-Serper API
-Gmail SMTP
-✨ Features
-🌐 Job Portal HTML Parsing
+</div>
 
-Supports:
+---
 
-Naukri
-Foundit
-Internshala
+## 📌 Table of Contents
 
-Extracts:
+- [Overview](#-overview)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [LangGraph Workflow](#-langgraph-workflow)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Setup Guide](#-setup-guide)
+- [Usage Workflows](#-usage-workflows)
+- [Dashboard Features](#-dashboard-features)
+- [Security Notes](#-security-notes)
+- [Future Improvements](#-future-improvements)
+- [Use Cases](#-use-cases)
+- [Author](#-author)
+- [License](#-license)
 
-company names
-job titles
-recruiter information
-🤖 Multi-Agent LangGraph Workflow
+---
 
-PlacementGPT uses a modular AI workflow architecture.
+## 🧭 Overview
 
-Agents:
+**PlacementGPT** is a full-stack AI workflow automation platform built for placement and internship outreach. It combines multi-agent LangGraph pipelines, local LLMs via Ollama, and Gmail SMTP to automate the entire recruiter outreach process — from HTML parsing to personalized email delivery.
 
-Portal Detector Agent
-HTML Scraper Agent
-Recruiter Email Search Agent
-Company Research Agent
-Email Filtering Agent
-AI Email Generator Agent
-🔍 Recruiter Email Discovery
+```
+Parse Job Portal HTML  →  Discover Recruiter Emails  →  Research Company
+         ↓                                                       ↓
+  Generate AI Email   ←────────────────────────────────────────←
+         ↓
+  Human-in-the-Loop Editing  →  Send via Gmail SMTP
+```
 
-Uses:
+---
 
-Serper API
-Google Search
+## ✨ Features
 
-Discovers:
+### 🌐 Job Portal HTML Parsing
+- Supports **Naukri**, **Foundit**, and **Internshala**
+- Extracts company names, job titles, and recruiter information from raw HTML
 
-HR emails
-recruiter emails
-careers emails
-hiring emails
+### 🤖 Multi-Agent LangGraph Workflow
+Modular AI pipeline with 6 specialized agents:
+| Agent | Responsibility |
+|---|---|
+| Portal Detector | Identifies the source portal |
+| HTML Scraper | Extracts structured data from HTML |
+| Recruiter Email Search | Discovers HR/recruiter emails via Google |
+| Company Research | Fetches company context for personalization |
+| Email Filter | Cleans, ranks, and deduplicates emails |
+| AI Email Generator | Writes personalized outreach using local LLM |
 
-Includes:
+### 🔍 Recruiter Email Discovery
+- Powered by **Serper API** + Google Search
+- Finds HR, recruiter, careers, and hiring emails
+- Includes email cleaning, spam filtering, and ranking
 
-email cleaning
-spam filtering
-email ranking
-🧠 AI Personalized Outreach
+### 🧠 AI Personalized Outreach
+- Uses **Ollama** (Llama 3.2) running locally
+- Context-aware email generation using company research
+- Generates cold emails, internship applications, and placement outreach
 
-Uses:
+### 📄 CSV Outreach Workflow
+Upload a recruiter CSV and bulk-generate personalized emails:
 
-Ollama local LLMs
-prompt engineering
-company research
-
-Generates:
-
-personalized recruiter outreach
-internship applications
-placement outreach
-cold emails
-📄 CSV Outreach Workflow
-
-Upload recruiter/company CSV files.
-
-Supported columns:
-
+```csv
 company_name,hr_name,email,position
 Google,Rahul,rahul@google.com,SWE Intern
 Microsoft,Priya,priya@microsoft.com,SDE Intern
+```
 
-Features:
+### 📬 Gmail SMTP Integration
+- Send emails directly from the dashboard
+- Attach resume and portfolio files
+- Editable recipient, subject, and body before sending
 
-editable prompts
-AI personalization
-recruiter outreach generation
-direct email sending
-📬 Gmail SMTP Integration
+### 📊 Modern Dashboard
+- Live workflow logs with real-time status updates
+- Accordion UI, workflow tabs, search & filter
+- Copy buttons, send mail buttons, attachment uploads
 
-Supports:
+---
 
-direct email sending
-attachments
-resume upload
-portfolio upload
+## 🏗️ Architecture
 
-Frontend supports:
+```
+┌─────────────────────────────────────────┐
+│              React Frontend             │
+│  Dashboard │ HTML Workflow │ CSV Upload  │
+└─────────────────┬───────────────────────┘
+                  │ HTTP / REST
+┌─────────────────▼───────────────────────┐
+│           FastAPI Backend               │
+│   Routes │ Services │ Parsers │ Models  │
+└─────────────────┬───────────────────────┘
+                  │
+┌─────────────────▼───────────────────────┐
+│         LangGraph Workflow Engine       │
+│                                         │
+│  ┌─────────────────────────────────┐    │
+│  │  Portal Detection Agent         │    │
+│  │  HTML Scraper Agent             │    │
+│  │  Recruiter Email Search Agent   │    │
+│  │  Company Research Agent         │    │
+│  │  Email Filter Agent             │    │
+│  │  AI Email Generator Agent       │    │
+│  └─────────────────────────────────┘    │
+└──────┬──────────────────────┬───────────┘
+       │                      │
+┌──────▼──────┐        ┌──────▼──────┐
+│  Ollama LLM │        │  Serper API │
+│ (Llama 3.2) │        │  (Google)   │
+└─────────────┘        └─────────────┘
+                  │
+┌─────────────────▼───────────────────────┐
+│           Gmail SMTP                    │
+│     Direct email delivery with          │
+│     resume/portfolio attachments        │
+└─────────────────────────────────────────┘
+```
 
-editable recruiter email
-editable subject
-editable AI-generated email body
-📊 Modern Dashboard
+---
 
-Includes:
+## 🧠 LangGraph Workflow
 
-live workflow logs
-accordion UI
-workflow tabs
-search/filter
-copy buttons
-send mail buttons
-attachment uploads
-real-time status updates
-🏗️ Architecture
-Frontend (React)
-        ↓
-FastAPI Backend
-        ↓
-LangGraph Workflow
-        ↓
-+-----------------------------+
-| Portal Detection Agent      |
-| HTML Scraper Agent          |
-| Recruiter Search Agent      |
-| Company Research Agent      |
-| Email Filter Agent          |
-| Email Generator Agent       |
-+-----------------------------+
-        ↓
-Frontend Dashboard
-        ↓
-Gmail SMTP Email Sending
-🧠 LangGraph Workflow
-Workflow Steps
-1. Portal Detection
+```
+[START]
+   │
+   ▼
+[Portal Detection] ──────► Detects: Naukri / Foundit / Internshala
+   │
+   ▼
+[HTML Parsing] ───────────► Extracts: Companies, Job Titles, Info
+   │
+   ▼
+[Recruiter Discovery] ────► Google Search + Serper API → HR Emails
+   │
+   ▼
+[Company Research] ───────► Overview, Activities, Hiring Context
+   │
+   ▼
+[Email Filter] ───────────► Clean, Deduplicate, Rank Emails
+   │
+   ▼
+[AI Email Generation] ────► Personalized Outreach via Ollama LLM
+   │
+   ▼
+[Human-in-the-Loop] ──────► Edit Recipient / Subject / Body
+   │
+   ▼
+[Gmail SMTP Send] ────────► Deliver with Resume Attachment
+   │
+   ▼
+[END]
+```
 
-Detects:
+Each step is a discrete, replaceable LangGraph node — making the pipeline fully modular and extensible.
 
-Naukri
-Foundit
-Internshala
-2. HTML Parsing
+---
 
-Extracts:
+## 🛠️ Tech Stack
 
-company names
-job titles
-hiring information
-3. Recruiter Discovery
+| Layer | Technology |
+|---|---|
+| **Frontend** | React, React Router, Tailwind CSS |
+| **Backend** | FastAPI, Python, Uvicorn |
+| **AI Workflow** | LangGraph |
+| **Local LLM** | Ollama (Llama 3.2 3B) |
+| **Search API** | Serper API |
+| **Email** | Gmail SMTP |
 
-Uses Google Search + Serper API to:
+---
 
-find HR emails
-find recruiter emails
-rank best emails
-4. Company Research
+## 📂 Project Structure
 
-Researches:
-
-company overview
-company activities
-hiring context
-5. AI Email Generation
-
-Generates:
-
-personalized outreach emails
-context-aware recruiter messages
-editable professional emails
-6. Email Sending
-
-Users can:
-
-edit recruiter email
-edit subject
-edit email body
-upload resume
-send directly via Gmail
-🛠️ Tech Stack
-Frontend
-React
-React Router
-Tailwind CSS
-Backend
-FastAPI
-LangGraph
-Python
-AI/LLM
-Ollama
-Llama 3.2
-Prompt Engineering
-APIs
-Serper API
-Gmail SMTP
-📂 Project Structure
+```
 PlacementGPT/
 │
 ├── backend/
-│   │
 │   ├── app/
-│   │   ├── agents/
-│   │   ├── graph/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── parsers/
-│   │   ├── models/
-│   │   └── main.py
+│   │   ├── agents/          # LangGraph agent definitions
+│   │   ├── graph/           # Workflow graph construction
+│   │   ├── routes/          # FastAPI route handlers
+│   │   ├── services/        # Business logic & integrations
+│   │   ├── parsers/         # HTML portal parsers
+│   │   ├── models/          # Pydantic data models
+│   │   └── main.py          # FastAPI app entrypoint
 │   │
-│   ├── sample.html
-│   ├── temp_uploads/
+│   ├── sample.html          # Paste job portal HTML here
+│   ├── temp_uploads/        # Temporary file storage
 │   ├── requirements.txt
-│   └── .env
+│   └── .env                 # Environment variables (not committed)
 │
 ├── frontend/
-│   │
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── App.jsx
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/           # Dashboard, HTML, CSV pages
+│   │   └── App.jsx          # Root component & routing
 │   │
 │   └── package.json
 │
 └── README.md
-⚙️ Setup Guide
-1. Clone Repository
+```
+
+---
+
+## ⚙️ Setup Guide
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/PlacementGPT.git
-
 cd PlacementGPT
-2. Setup Backend
+```
+
+### 2. Setup Backend
+
+```bash
 cd backend
-
-Install dependencies:
-
 pip install -r requirements.txt
-3. Install Ollama
+```
 
-Download:
+### 3. Install Ollama
 
-https://ollama.com
-4. Download LLM
+Download from [https://ollama.com](https://ollama.com) and install for your OS.
+
+### 4. Pull the LLM
+
+```bash
 ollama run llama3.2:3b
-5. Configure Environment Variables
+```
 
-Create:
+### 5. Configure Environment Variables
 
-backend/.env
+Create `backend/.env`:
 
-Add:
-
-SERPER_API_KEY=your_serper_key
-
+```env
+SERPER_API_KEY=your_serper_api_key
 EMAIL_ADDRESS=yourgmail@gmail.com
+EMAIL_APP_PASSWORD=your_gmail_app_password
+```
 
-EMAIL_APP_PASSWORD=your_app_password
-6. Gmail SMTP Setup
-Enable 2FA
+### 6. Gmail SMTP Setup
 
-Google Account → Security → 2-Step Verification
+1. Enable **2-Step Verification** → [Google Account → Security](https://myaccount.google.com/security)
+2. Generate an **App Password** → [Google Account → App Passwords](https://myaccount.google.com/apppasswords)
+3. Use the generated 16-character password as `EMAIL_APP_PASSWORD` in `.env`
 
-Generate App Password
+> ⚠️ Never use your regular Gmail password. App Passwords are required.
 
-Google Account → App Passwords
+### 7. Run the Backend
 
-Use generated password inside .env
-
-7. Run Backend
+```bash
 uvicorn app.main:app --reload
+# Runs at http://localhost:8000
+```
 
-Backend runs on:
+### 8. Setup and Run Frontend
 
-http://localhost:8000
-8. Setup Frontend
+```bash
 cd frontend
-
 npm install
-9. Run Frontend
 npm run dev
+# Runs at http://localhost:5173
+```
 
-Frontend runs on:
+---
 
-http://localhost:5173
-🌐 HTML Workflow
-Step 1
+## 🖥️ Usage Workflows
 
-Open:
+### 🌐 HTML Workflow (Job Portal Scraping)
 
-Naukri
-Foundit
-Internshala
-Step 2
+```
+1. Open Naukri / Foundit / Internshala in your browser
+2. Right-click → View Page Source → Copy all HTML
+3. Paste into: backend/sample.html
+4. Open the dashboard at http://localhost:5173
+5. Click "Generate Emails"
+6. Review → Edit → Send
+```
 
-Inspect page source.
+### 📄 CSV Workflow (Bulk Outreach)
 
-Copy complete HTML.
+```
+1. Prepare a CSV file with columns:
+   company_name, hr_name, email, position
 
-Step 3
+2. Upload via the dashboard CSV tab
 
-Paste into:
+3. Customize the AI prompt (optional)
 
-backend/sample.html
-Step 4
+4. Click "Generate Emails"
 
-Open dashboard.
+5. Edit individual emails as needed
 
-Click:
+6. Attach resume → Send
+```
 
-Generate Emails
-📄 CSV Workflow
+---
 
-Upload recruiter CSV file.
+## 📊 Dashboard Features
 
-Example:
+| Feature | Description |
+|---|---|
+| **Live Workflow Logs** | Real-time updates: portal detection → email generation |
+| **Accordion UI** | Expandable email cards per recruiter |
+| **Human-in-the-Loop** | Edit recipient, subject, body before sending |
+| **Attachment Upload** | Attach resume or portfolio per email |
+| **Copy Buttons** | One-click copy of any generated email |
+| **Send Buttons** | Direct Gmail SMTP sending from the UI |
+| **Search & Filter** | Filter results by company or position |
 
-company_name,hr_name,email,position
-Google,Rahul,rahul@google.com,SWE Intern
-Microsoft,Priya,priya@microsoft.com,SDE Intern
+---
 
-Then:
+## 🔐 Security Notes
 
-customize prompt
-generate emails
-edit emails
-attach resume
-send emails
-📬 Email Sending
+- Never commit your `.env` file — add it to `.gitignore`
+- Never expose your `SERPER_API_KEY` or `EMAIL_APP_PASSWORD` publicly
+- Use Gmail **App Passwords only** — never your personal account password
+- `temp_uploads/` should be excluded from version control
 
-PlacementGPT supports:
+```gitignore
+# Add to .gitignore
+backend/.env
+backend/temp_uploads/
+```
 
-direct Gmail SMTP sending
-resume attachments
-portfolio attachments
+---
 
-Features:
+## 🚀 Future Improvements
 
-editable recipient email
-editable subject
-editable AI-generated content
-📸 Dashboard Features
-Live Workflow Logs
+- [ ] Streaming LLM responses in the UI
+- [ ] Auto email campaign scheduling
+- [ ] Recruiter CRM with contact history
+- [ ] PostgreSQL for persistent storage
+- [ ] User authentication & multi-user support
+- [ ] Background task queues (Celery / Redis)
+- [ ] Analytics dashboard (open rates, responses)
+- [ ] Follow-up email agents
+- [ ] Vector database memory (RAG for company context)
+- [ ] Cloud deployment (Docker + Railway / Render)
 
-Real-time logs:
+---
 
-portal detection
-recruiter discovery
-email generation
-workflow progress
-Human-in-the-Loop Editing
+## 🧪 Use Cases
 
-Users can manually:
+- 🎓 **Campus Placement Outreach** — bulk personalized emails to recruiters
+- 🏢 **Internship Applications** — cold outreach to startup & corporate HRs
+- 🤝 **Recruiter Networking** — professional first-touch emails
+- 💼 **Freelance Pitching** — customized client outreach at scale
+- 🚀 **Startup Outreach** — target hiring managers with company-specific context
 
-edit recruiter emails
-edit AI output
-change subject
-add attachments
-🔐 Security Notes
-Never expose .env
-Never commit API keys
-Use Gmail App Passwords only
-Do not use personal password directly
-🚀 Future Improvements
+---
 
-Possible future upgrades:
+## 🎯 What This Project Demonstrates
 
-streaming LLM responses
-auto-email campaigns
-recruiter CRM
-PostgreSQL integration
-authentication
-background queues
-analytics dashboard
-follow-up email agents
-vector database memory
-RAG company memory
-cloud deployment
-🧪 Example Use Cases
-placement outreach
-internship applications
-recruiter networking
-startup outreach
-cold emailing
-freelance pitching
-🎯 Resume Value
+| Skill | Application |
+|---|---|
+| AI Workflow Orchestration | LangGraph multi-agent pipelines |
+| Local LLM Integration | Ollama + Llama 3.2 |
+| Backend Engineering | FastAPI, async Python |
+| Frontend Engineering | React, Tailwind CSS |
+| Prompt Engineering | Context-aware email generation |
+| Email Automation | Gmail SMTP with attachments |
+| Web Scraping | HTML parsing for job portals |
+| API Integration | Serper API for recruiter discovery |
 
-This project demonstrates:
+---
 
-AI workflow orchestration
-LangGraph multi-agent systems
-FastAPI backend engineering
-React frontend engineering
-local LLM integration
-recruiter automation workflows
-Gmail SMTP automation
-prompt engineering
-async frontend/backend communication
-👨‍💻 Author
-Ritik Saini
+## 👨‍💻 Author
 
+<div align="center">
+
+**Ritik Saini**
 IIIT Bhubaneswar
 
-Built using:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/yourprofile)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/yourusername)
 
-React
-FastAPI
-LangGraph
-Ollama
-Serper API
-Gmail SMTP
-📜 License
+</div>
 
-MIT License
+---
 
-⭐ If You Like This Project
+## 📜 License
 
-Star the repository and share it with others 🚀
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+**⭐ If PlacementGPT helped you land an opportunity, star this repo and share it!**
+
+*Built with React · FastAPI · LangGraph · Ollama · Serper API · Gmail SMTP*
+
+</div>
