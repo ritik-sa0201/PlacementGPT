@@ -8,25 +8,25 @@ export default function Navbar() {
       to={path}
       style={{
         padding: "8px 16px",
-        borderRadius: 8,
+        borderRadius: 4,
         fontSize: 14,
         fontWeight: 500,
         textDecoration: "none",
         fontFamily: "'Inter', sans-serif",
-        transition: "all 0.2s",
+        transition: "all 0.15s ease",
         ...(location.pathname === path
-          ? { background: "#0e1a2b", color: "#22d3ee", border: "1px solid #1d3a5f" }
-          : { color: "#64748b", border: "1px solid transparent" }),
+          ? { background: "#EFEBDE", color: "#9C6A22", border: "1px solid #E3D6B8" }
+          : { color: "#8A7B5E", border: "1px solid transparent" }),
       }}
       onMouseEnter={(e) => {
         if (location.pathname !== path) {
-          e.target.style.color = "#94a3b8";
-          e.target.style.background = "#0d0f14";
+          e.target.style.color = "#57493A";
+          e.target.style.background = "#F3EBD9";
         }
       }}
       onMouseLeave={(e) => {
         if (location.pathname !== path) {
-          e.target.style.color = "#64748b";
+          e.target.style.color = "#8A7B5E";
           e.target.style.background = "transparent";
         }
       }}
@@ -38,13 +38,16 @@ export default function Navbar() {
   return (
     <nav style={{
       width: "100%",
-      background: "rgba(8,8,9,0.88)",
-      backdropFilter: "blur(12px)",
-      borderBottom: "1px solid #111827",
+      background: "rgba(246,239,223,0.92)",
+      backdropFilter: "blur(6px)",
+      borderBottom: "1px solid #E3D6B8",
       position: "sticky",
       top: 0,
       zIndex: 50,
     }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap');
+      `}</style>
       <div style={{
         maxWidth: 1280,
         margin: "0 auto",
@@ -54,38 +57,36 @@ export default function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
       }}>
-
         {/* LOGO */}
         <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{
             width: 34,
             height: 34,
-            borderRadius: 9,
-            background: "#22d3ee",
+            borderRadius: "50%",
+            background: "#BE8A2E",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontWeight: 900,
-            fontSize: 16,
-            color: "#020617",
-            fontFamily: "'JetBrains Mono', monospace",
-          }}>P</div>
+            fontWeight: 600,
+            fontSize: 15,
+            color: "#FBF6EA",
+            fontFamily: "'Fraunces', serif",
+            transform: "rotate(-6deg)",
+          }}>CP</div>
           <span style={{
             fontSize: 17,
-            fontWeight: 800,
-            letterSpacing: "-0.02em",
-            color: "#f1f5f9",
-            fontFamily: "'Inter', sans-serif",
-          }}>PlacementGPT</span>
+            fontWeight: 600,
+            letterSpacing: "-0.01em",
+            color: "#2A2318",
+            fontFamily: "'Fraunces', serif",
+          }}>CareerPilot</span>
         </Link>
-
         {/* LINKS */}
         <div style={{ display: "flex", gap: 6 }}>
           {navItem("/", "Home")}
           {navItem("/setup", "Setup")}
           {navItem("/dashboard", "Dashboard")}
         </div>
-
       </div>
     </nav>
   );
